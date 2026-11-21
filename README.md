@@ -2,7 +2,7 @@
 
 记录一群傻*。用 [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 构建的静态 wiki。
 
-线上地址：<https://stupidswiki.github.io/>
+线上地址：<https://xiezao1225.github.io/stupidswiki.github.io/>
 
 ## 目录结构
 
@@ -104,6 +104,14 @@ notice:
 推送到 `main` 后由 `.github/workflows/pages.yml` 自动构建并发布：装依赖 → `python -m mkdocs build --strict` → 上传 `site/` 作为 Pages 产物。
 
 第一次部署需要在仓库 **Settings → Pages → Source** 里选 **GitHub Actions**（而不是「Deploy from a branch」）。
+
+关于地址：仓库叫 `stupidswiki.github.io`，但归属账号是 `Xiezao1225`，所以它是**项目站**而不是用户站，地址带一级子路径：
+
+```text
+https://xiezao1225.github.io/stupidswiki.github.io/
+```
+
+这直接影响 `mkdocs.yml` 里的 `site_url`——它决定锚点永久链接、sitemap 和 canonical。以后换账号、改仓库名或者上自定义域名，记得同步改 `site_url`，否则页面里的 `¶` 会指向别的地址。
 
 想手动发布的话，`python -m mkdocs build` 之后把 `site/` 的内容推到 `gh-pages` 分支也行。
 
