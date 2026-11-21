@@ -1,0 +1,33 @@
+/* stupidswiki 在 Material 之上的少量补充样式 */
+
+/* 突发新闻模板的 LIVE 徽标 */
+.md-typeset .admonition .wiki-live {
+  display: inline-block;
+  margin-left: .35em;
+  padding: .04em .38em;
+  font-size: .62em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.7;
+  vertical-align: .12em;
+  color: #fff;
+  background: #e53935;
+  border-radius: .2rem;
+}
+
+/* 模板库里没有的名字 */
+.md-typeset .wiki-unknown {
+  display: inline-block;
+  padding: .04em .4em;
+  font-family: var(--md-code-font, monospace);
+  font-size: .85em;
+  color: #c62828;
+  border: 1px dashed currentColor;
+  border-radius: .2rem;
+  cursor: help;
+}
+
+/* 页面顶部的多条提示挨得紧一些 */
+.md-typeset > .admonition + .admonition {
+  margin-top: -.6rem;
+}

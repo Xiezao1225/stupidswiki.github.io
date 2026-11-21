@@ -1,0 +1,18 @@
+# MkDocs 构建产物
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.cache/
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 第三方站点的整页存档，不发布
+模板.txt
