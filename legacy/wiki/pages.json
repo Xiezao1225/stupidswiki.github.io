@@ -1,0 +1,90 @@
+{
+  "site": {
+    "title": "stupidswiki",
+    "tagline": "记录一群傻*。",
+    "description": "一个用 Markdown 写的轻量 wiki：记录我们这伙人的人、事、梗和传说。",
+    "repo": "https://github.com/stupidswiki/stupidswiki.github.io",
+    "footer": "内容都是 Markdown，改完刷新即可"
+  },
+  "categories": [
+    {
+      "title": "入门",
+      "pages": [
+        {
+          "id": "home",
+          "title": "首页",
+          "file": "home.md",
+          "description": "这个 wiki 是什么，以及三条不成文的规定。"
+        },
+        {
+          "id": "guide-start",
+          "title": "怎么用这个 wiki",
+          "file": "guide-start.md",
+          "description": "导航、全文搜索、快捷键，还有怎么分享某一节。"
+        }
+      ]
+    },
+    {
+      "title": "编辑指南",
+      "pages": [
+        {
+          "id": "guide-add-page",
+          "title": "新增一页",
+          "file": "guide-add-page.md",
+          "description": "建文件、改清单、写内容——三步就能加一条。"
+        },
+        {
+          "id": "guide-markdown",
+          "title": "Markdown 速查",
+          "file": "guide-markdown.md",
+          "description": "渲染器支持的语法清单，附例子。"
+        },
+        {
+          "id": "template-entry",
+          "title": "条目模板",
+          "file": "template-entry.md",
+          "description": "复制就能用的条目骨架。"
+        }
+      ]
+    },
+    {
+      "title": "模板",
+      "pages": [
+        {
+          "id": "templates",
+          "title": "页首模板一览",
+          "file": "templates.md",
+          "description": "十四条现成的提示条，`{{模板名}}` 一行就能用。"
+        },
+        {
+          "id": "guide-notice",
+          "title": "提示条的写法",
+          "file": "guide-notice.md",
+          "description": "模板调用、手写字段、可关闭，都在这一页。"
+        }
+      ]
+    },
+    {
+      "title": "人物志",
+      "pages": [
+        {
+          "id": "entry-sample",
+          "title": "示例条目：老王",
+          "file": "entry-sample.md",
+          "description": "一个填好的样板，照这个格式写就行。"
+        }
+      ]
+    },
+    {
+      "title": "其他",
+      "pages": [
+        {
+          "id": "sandbox",
+          "title": "沙盒",
+          "file": "sandbox.md",
+          "description": "随便写随便试，写坏了也不心疼。"
+        }
+      ]
+    }
+  ]
+}

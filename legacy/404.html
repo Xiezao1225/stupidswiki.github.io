@@ -1,0 +1,32 @@
+# 404 · 没有这一页
+
+这个地址下没有内容。可能链接写错了，也可能这一页还没建。
+
+<a href="/">回到首页</a>
+
+<script>
+  // 带哈希的地址（例如 #/page/xyz）交给首页的路由处理
+  if (window.location.hash) {
+    window.location.replace('/' + window.location.hash);
+  }
+</script>
+
+<style>
+  body {
+    max-width: 34rem;
+    margin: 12vh auto;
+    padding: 0 1.5rem;
+    font: 16px/1.7 ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC",
+      "Microsoft YaHei", sans-serif;
+    color: #1c1b19;
+    background: #fbfaf8;
+  }
+  h1 { font-size: 1.7rem; letter-spacing: -.02em; }
+  p { color: #43413c; }
+  a { color: #a63d22; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #ecebe6; background: #141312; }
+    p { color: #cfccc4; }
+    a { color: #f0a583; }
+  }
+</style>
