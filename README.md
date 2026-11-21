@@ -12,14 +12,23 @@
 ├── requirements.txt      Python 依赖
 ├── docs/                 所有页面，一个 .md 一页
 │   ├── index.md          首页
-│   ├── stylesheets/      少量补充样式
-│   └── assets/           图片放这里
+│   ├── stylesheets/      补充样式（顶栏液态玻璃的观感也在这）
+│   └── assets/           图片，以及顶栏液态玻璃的脚本
 ├── hooks/
 │   ├── wiki.py           自定义语法的转换钩子
 │   └── notices.json      提示条模板库
 ├── legacy/               迁移前的自研静态站，存档用，不参与构建
 └── .github/workflows/    GitHub Pages 自动构建发布
 ```
+
+## 顶栏液态玻璃
+
+顶栏是一块真的会折射的玻璃，不是单纯的半透明模糊：`docs/assets/liquid-glass.js` 按顶栏尺寸用 canvas 画两张贴图（法线图 + 镜面图），拼成 `feDisplacementMap` 滤镜，再用 `backdrop-filter: url(#id)` 作用在滚动过去的内容上。
+
+- 实现移植自 [Archis Vaze 的 liquid-glass](https://github.com/archisvaze/liquid-glass)（MIT），去掉了他那个可拖动的演示外壳
+- **只有 Chromium 支持** `backdrop-filter` 接 `url()` 滤镜；脚本会先探测，不支持就完全不加 `lg-glass` 类，顶栏保持 Material 原样（不会出现「半透明但没模糊」的糟糕状态）
+- 玻璃的参数（厚度、折射率、模糊、高光）在脚本顶部的 `CONFIG` 里；配色和边缘高光在 `wiki.css` 的 `.md-header.lg-glass` 里
+- 尺寸变化会重算贴图（`ResizeObserver` + 防抖），`prefers-reduced-transparency` 下自动退回实色
 
 ## 本地预览
 

@@ -31,3 +31,88 @@
 .md-typeset > .admonition + .admonition {
   margin-top: -.6rem;
 }
+
+/* ------------------------------------------------------------------
+   顶栏液态玻璃
+   滤镜由 assets/liquid-glass.js 注入，凭 .lg-glass 类生效；
+   不支持 backdrop-filter: url() 的浏览器不会加这个类，观感保持原样。
+   ------------------------------------------------------------------ */
+
+.md-header.lg-glass {
+  --md-primary-bg-color: #1b1a18;
+  background-color: rgba(252, 250, 246, 0.42);
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(28, 27, 25, 0.14),
+    0 6px 22px rgba(28, 27, 25, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-header.lg-glass {
+  --md-primary-bg-color: #f2f0ec;
+  background-color: rgba(14, 14, 16, 0.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    0 6px 22px rgba(0, 0, 0, 0.42);
+}
+
+/* 玻璃的「厚度感」：上缘受光、下缘压暗，中间一层很淡的反光 */
+.md-header.lg-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(140% 160% at 8% -30%, rgba(255, 255, 255, 0.5), transparent 62%);
+  box-shadow: inset 0 -1px 0 rgba(28, 27, 25, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-header.lg-glass::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(140% 160% at 8% -30%, rgba(255, 255, 255, 0.12), transparent 62%);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.md-header.lg-glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 玻璃上的控件跟着玻璃走：浅色玻璃配深色字，深色玻璃配浅色字 */
+.md-header.lg-glass .md-search__form {
+  background-color: rgba(28, 27, 25, 0.07);
+  box-shadow: none;
+}
+
+.md-header.lg-glass .md-search__input,
+.md-header.lg-glass .md-search__icon {
+  color: #1b1a18;
+}
+
+.md-header.lg-glass .md-search__input::placeholder {
+  color: rgba(28, 27, 25, 0.55);
+}
+
+[data-md-color-scheme="slate"] .md-header.lg-glass .md-search__form {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-header.lg-glass .md-search__input,
+[data-md-color-scheme="slate"] .md-header.lg-glass .md-search__icon {
+  color: #f2f0ec;
+}
+
+[data-md-color-scheme="slate"] .md-header.lg-glass .md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .md-header.lg-glass {
+    background-color: var(--md-primary-fg-color);
+  }
+}
